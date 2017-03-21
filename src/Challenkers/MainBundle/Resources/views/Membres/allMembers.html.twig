@@ -1,0 +1,54 @@
+{# src/Challenkers/MainBundle/Resources/views/Default/allMembers.html.twig #}
+
+<html>
+  <head>
+        <title>Challenkers</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+            <link href="{{ asset('bundles/framework/css/style-tableau.css') }}" rel="stylesheet" />
+        {% endblock %}
+         <meta charset="UTF-8">
+    </head>
+  <body>
+    
+  <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+  <div class="menu">
+    <label class="menu-toggle" for="menu"><span>Toggle</span></label>
+    <ul>
+      <li style=" padding-top: 50px; "><a href="../app_dev.php"> <strong>Retour à la liste des serveurs </strong></a></li>
+    </ul>
+  </div>
+    
+    <div class="table-title">
+      <h3>Liste de tous les joueurs</h3>
+    </div>
+    <table class="table-fill">
+    <thead>
+    <tr>
+    
+    <th class="text-left">Pseudo</th>
+    <th class="text-left">Classe</th>
+    <th class="text-left">Level</th>
+    <th class="text-left">Points</th>
+  
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+      {% for membre in membres %}
+    <tr>
+      
+      <td class="text-left">{{ membre.getPseudo() }}</td>
+      <td class="text-left">{{ membre.getClasse() }}</td>
+      <td class="text-left">{{ membre.getLevel }}</td>
+      <td class="text-left">{{ membre.getPoints }}</td>
+    </tr>
+      {% endfor %}
+
+  </tbody>
+  </table>
+  
+
+    
+
+  </body>
+</html>

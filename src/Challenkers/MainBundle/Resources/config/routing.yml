@@ -1,0 +1,105 @@
+# src/Challenkers/MainBundle/Resources/config/routing.yml
+
+challenkers_main_homepage: #Liste des serveurs du Maitre du jeu
+    path:     /
+    defaults: { _controller: ChallenkersMainBundle:Default:index }
+
+hello_the_world: #Exemple tuto
+    path:     /hello-world
+    defaults: { _controller: ChallenkersMainBundle:Advert:index }
+
+guild_list: #Liste des guildes du serveur
+    path:     /guild-list/{idServeur}
+    defaults: { _controller: ChallenkersMainBundle:Guildes:index }
+    requirements:
+        id: \d+
+
+guild_info: #Informations de la guilde
+    path:     /guild-info/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Guildes:info }
+    requirements:
+        id: \d+
+
+guild_members: #Liste des membres de la guilde
+    path:     /guild-members/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Membres:index }
+    requirements:
+        id: \d+
+
+classement:
+    path:     /classement/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:index }
+    requirements:
+        id: \d+
+
+classementLevel:
+    path:     /classement-level/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:level }
+    requirements:
+        id: \d+
+        
+all_members:
+    path:     /all-members
+    defaults: { _controller: ChallenkersMainBundle:Membres:allMembers }
+    requirements:
+        id: \d+
+        
+classementRankS:
+    path:     /classement-rankS/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:rankS }
+    requirements:
+        id: \d+
+        
+classementRankA:
+    path:     /classement-rankA/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:rankA }
+    requirements:
+        id: \d+
+
+classementRankB:
+    path:     /classement-rankB/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:rankB }
+    requirements:
+        id: \d+
+
+classementRankC:
+    path:     /classement-rankC/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:rankC }
+    requirements:
+        id: \d+
+        
+classementClasseArcher:
+    path:     /classement-classeArcher/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:classeArcher }
+    requirements:
+        id: \d+
+
+classementClasseChevalier:
+    path:     /classement-classeChevalier/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:classeChevalier }
+    requirements:
+        id: \d+
+
+classementClasseHeal:
+    path:     /classement-classeHeal/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:classeHeal }
+    requirements:
+        id: \d+
+        
+classementClasseMage:
+    path:     /classement-classeMage/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:classeMage }
+    requirements:
+        id: \d+
+
+classementClasseTank:
+    path:     /classement-classeTank/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:classeTank }
+    requirements:
+        id: \d+
+        
+classementClasseAutre:
+    path:     /classement-classeAutre/{idGuilde}
+    defaults: { _controller: ChallenkersMainBundle:Classement:classeAutre }
+    requirements:
+        id: \d+

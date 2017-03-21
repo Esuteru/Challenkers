@@ -1,0 +1,113 @@
+{# src/Challenkers/MainBundle/Resources/views/Guildes/info.html.twig #}
+
+<html>
+  <head>
+        <title>Challenkers</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+            <link href="{{ asset('bundles/framework/css/style-info.css') }}" rel="stylesheet" />
+        {% endblock %}
+         <meta charset="UTF-8">
+    </head>
+  <body>
+    
+    <!--Recherche du maître de guilde NE MARCHE PAS--> 
+    {#{% for membre in membres %}#}
+      {#{% if membre.getId() == {{guilde.getIdMaitreGuilde}}%}#}
+        {#{{ membre.getPseudo }}#}
+     {# {% endif %}#}
+    {#{% endfor %}#}
+    
+
+<!-- Menu onglet -->
+<div id="wrapper">
+  <div id="info">
+    <div id="info-content" >
+      <h1 style="background-color : black;">{{ guilde.getNomGuilde }} <strong>Guild</strong></h1>
+      
+    </div>
+  </div>
+
+  <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+  <div class="menu">
+    <label class="menu-toggle" for="menu"><span>Toggle</span></label>
+    <ul>
+      <li style=" padding-top: 50px; "><a href=".."> <strong>Retour à la liste des serveurs </strong></a></li>
+      <li><a href="../guild-members/{{ idGuilde }}">Liste des membres</a></li>
+      <li><a href="../classement/{{ idGuilde }}">Membres les plus méritants</a></li>
+      <li><a href="../classement-level/{{ idGuilde }}">Membres les plus forts</a></li>
+      
+      <li>
+        <label for="menu-4">Classement par Rang</label>
+        <input type="checkbox" id="menu-4" name="menu-4" class="menu-checkbox">
+        <div class="menu">
+          <label class="menu-toggle" for="menu-4"><span>Toggle</span></label>
+          <ul style="padding-left : 15px; padding-top : 50px;">
+            <li>
+              <a href="../classement-rankS/{{idGuilde}}"> <strong>></strong> S (+ de 700pts)</a>
+            </li>
+            <li>
+              <a href="../classement-rankA/{{idGuilde}}"> <strong>></strong> A (entre 500 et 699)</a>
+            </li>
+            <li>
+              <a href="../classement-rankB/{{idGuilde}}"> <strong>></strong> B (entre 300 et 499)</a>
+            </li>
+            <li>
+              <a href="../classement-rankC/{{idGuilde}}"> <strong>></strong> C (- de 300pts)</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      
+      <li>
+        <label for="menu-5">Classement par Classe</label>
+        <input type="checkbox" id="menu-5" name="menu-5" class="menu-checkbox">
+        <div class="menu">
+          <label class="menu-toggle" for="menu-5"><span>Toggle</span></label>
+          <ul style="padding-left : 15px; padding-top : 50px;">
+            <li>
+              <a href="../classement-classeArcher/{{idGuilde}}"> <strong>></strong> Archer</a>
+            </li>
+            <li>
+              <a href="../classement-classeChevalier/{{idGuilde}}"> <strong>></strong> Chevalier</a>
+            </li>
+            <li>
+              <a href="../classement-classeHeal/{{idGuilde}}"> <strong>></strong> Heal</a>
+            </li>
+            <li>
+              <a href="../classement-classeMage/{{idGuilde}}"> <strong>></strong> Mage</a>
+            </li>
+            <li>
+              <a href="../classement-classeTank/{{idGuilde}}"> <strong>></strong> Tank</a>
+            </li>
+            
+          </ul>
+        </div>
+      </li> 
+    </ul>
+      
+  </div>
+  
+  {% set totalPoints = 0 %}
+  {% set nbMembres = 0 %}
+  {% for membre in membres %}
+     {% set totalPoints = totalPoints + membre.getPoints() %}
+     {% set nbMembres = nbMembres + 1 %}
+  {% endfor %}
+  
+  {% set moyenne = totalPoints/nbMembres %}
+  
+
+<div id="box1" class="box blurred-bg tinted">
+  <div class="content">
+    <h1>Informations</h1>
+	    <h2>{{guilde.getNomGuilde}}</h2>
+    <p class="related">Total des points : {{totalPoints}}</p>
+    <p class="related">Nombre de membres : {{nbMembres}}</p>
+    <p class="related">Moyenne de points par membre : {{moyenne|round(1, 'floor')}}</p>
+  </div>
+</div>
+
+
+  </body>
+</html>

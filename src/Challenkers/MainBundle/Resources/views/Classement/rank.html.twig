@@ -1,0 +1,108 @@
+{# src/Challenkers/MainBundle/Resources/views/Default/index.html.twig #}
+
+<html>
+  <head>
+        <title>Challenkers</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+            <link href="{{ asset('bundles/framework/css/style-tableau.css') }}" rel="stylesheet" />
+        {% endblock %}
+         <meta charset="UTF-8">
+    </head>
+  <body>
+   
+   
+  <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+  <div class="menu">
+    <label class="menu-toggle" for="menu"><span>Toggle</span></label>
+    <ul>
+      <li style=" padding-top: 50px; "><a href=".."> <strong>Retour à la liste des serveurs </strong></a></li>
+      <li><a href="../guild-info/{{ idGuilde }}"> <strong>Guilde {{nomGuilde}} </strong></a></li>
+      <li><a href="../guild-members/{{ idGuilde }}">Liste des membres</a></li>
+      <li><a href="../classement/{{ idGuilde }}">Membres les plus méritants</a></li>
+      <li><a href="../classement-level/{{ idGuilde }}">Membres les plus forts</a></li>
+      
+      <li>
+        <label for="menu-4">Classement par Rang</label>
+        <input type="checkbox" id="menu-4" name="menu-4" class="menu-checkbox">
+        <div class="menu">
+          <label class="menu-toggle" for="menu-4"><span>Toggle</span></label>
+          <ul style="padding-left : 15px; padding-top : 50px;">
+            <li>
+              <a href="../classement-rankS/{{idGuilde}}"> <strong>></strong> S (+ de 700pts)</a>
+            </li>
+            <li>
+              <a href="../classement-rankA/{{idGuilde}}"> <strong>></strong> A (entre 500 et 699)</a>
+            </li>
+            <li>
+              <a href="../classement-rankB/{{idGuilde}}"> <strong>></strong> B (entre 300 et 499)</a>
+            </li>
+            <li>
+              <a href="../classement-rankC/{{idGuilde}}"> <strong>></strong> C (- de 300pts)</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      
+      <li>
+        <label for="menu-5">Classement par Classe</label>
+        <input type="checkbox" id="menu-5" name="menu-5" class="menu-checkbox">
+        <div class="menu">
+          <label class="menu-toggle" for="menu-5"><span>Toggle</span></label>
+          <ul style="padding-left : 15px; padding-top : 50px;">
+            <li>
+              <a href="../classement-classeArcher/{{idGuilde}}"> <strong>></strong> Archer</a>
+            </li>
+            <li>
+              <a href="../classement-classeChevalier/{{idGuilde}}"> <strong>></strong> Chevalier</a>
+            </li>
+            <li>
+              <a href="../classement-classeHeal/{{idGuilde}}"> <strong>></strong> Heal</a>
+            </li>
+            <li>
+              <a href="../classement-classeMage/{{idGuilde}}"> <strong>></strong> Mage</a>
+            </li>
+            <li>
+              <a href="../classement-classeTank/{{idGuilde}}"> <strong>></strong> Tank</a>
+            </li>
+          </ul>
+        </div>
+      </li> 
+    </ul>
+      
+  </div>
+   
+    <div class="table-title">
+      <h3>Membres {{ nomGuilde }} par Rang ({{rank}})</h3>
+    </div>
+    <table class="table-fill">
+    <thead>
+    <tr>
+    
+    <th class="text-left">Pseudo</th>
+    <th class="text-left">Classe</th>
+    <th class="text-left">Level</th>
+    <th class="text-left">Points</th>
+  
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+      {% for membre in membres %}
+    <tr>
+      
+      <td class="text-left">{{ membre.getPseudo() }}</td>
+      <td class="text-left">{{ membre.getClasse() }}</td>
+      <td class="text-left">{{ membre.getLevel }}</td>
+      <td class="text-left">{{ membre.getPoints }}</td>
+    </tr>
+      {% endfor %}
+
+  </tbody>
+  </table>
+  
+
+    
+    
+
+  </body>
+</html>

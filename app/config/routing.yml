@@ -1,0 +1,9 @@
+# app/config/routing.yml
+
+challenkers_main:
+    resource: "@ChallenkersMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

@@ -1,0 +1,39 @@
+{# src/Challenkers/MainBundle/Resources/views/Advert/index.html.twig #}
+
+<html>
+  <head>
+        <title>Main Page</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+            <link href="{{ asset('bundles/framework/css/select_guilde.css') }}" rel="stylesheet" />
+        {% endblock %}
+         <meta charset="UTF-8">
+    </head>
+  <body>
+
+<header>
+  <span>Easy & Simple CSS Triangles</span>
+  <small>Instructions are within the HTML & CSS</small>
+</header>
+
+<section class="wrapper">
+  
+  <div class="box triangle bottom"> <!-- Simply add "triangle" & the direction as classes -->
+    <p>Bottom</p>
+  </div>
+
+  <div class="box triangle left">
+    <p>Left</p>
+  </div>
+
+  <div class="box triangle right">
+    <p>Right</p>
+  </div>
+
+  <div class="box triangle top">
+    <p>Top</p>
+  </div>
+  
+</section>
+  </body>
+</html>

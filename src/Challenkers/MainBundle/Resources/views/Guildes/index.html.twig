@@ -1,0 +1,35 @@
+{# src/Challenkers/MainBundle/Resources/views/Default/index.html.twig #}
+
+<html>
+  <head>
+        <title>Challenkers</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+            <link href="{{ asset('bundles/framework/css/style.css') }}" rel="stylesheet" />
+        {% endblock %}
+         <meta charset="UTF-8">
+    </head>
+  <body>
+    
+    <h1>
+      <div class="animated fadeInLeft">BIENVENUE</div><div class="animated fadeInRight">SUR LE SERVEUR</div>
+    </h1>
+    <p class="animated fadeInUp delay-1">{{ serveur.getNomServeur() }} </p>
+
+    <input type="checkbox" id="op"></input>
+<div class="lower" style="margin-top:30px;">
+  <label for="op">Liste des guildes</label>
+</div>
+<div class="overlay overlay-hugeinc">
+			<label for="op"></label>
+			<nav>
+				<ul>
+					{% for guilde in guildes %}
+            <li><a href="../guild-info/{{guilde.getId()}}">{{ guilde.getNomGuilde() }}</a></li>
+          {% endfor %}
+				</ul>
+			</nav>
+</div>
+
+  </body>
+</html>

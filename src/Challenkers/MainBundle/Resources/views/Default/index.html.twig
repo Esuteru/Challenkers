@@ -1,0 +1,33 @@
+{# src/Challenkers/MainBundle/Resources/views/Default/index.html.twig #}
+
+<html>
+  <head>
+        <title>Challenkers</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+            <link href="{{ asset('bundles/framework/css/style.css') }}" rel="stylesheet" />
+        {% endblock %}
+         <meta charset="UTF-8">
+    </head>
+  <body>
+    <input type="checkbox" id="op"></input>
+<div class="lower">
+  <label for="op">Liste des serveurs</label>
+</div>
+<div class="overlay overlay-hugeinc">
+			<label for="op"></label>
+			<nav>
+				<ul>
+				  <!--Liste de tous les serveurs contenus dans la BDD-->
+					{% for serveur in serveurs %}
+            <li><a href="../app_dev.php/guild-list/{{serveur.getId()}}">{{ serveur.getNomServeur() }}</a></li>
+          {% endfor %}
+            <li><a href="../app_dev.php/all-members">Liste de tous les membres</a></li>
+				</ul>
+			</nav>
+			
+			
+</div>
+
+  </body>
+</html>

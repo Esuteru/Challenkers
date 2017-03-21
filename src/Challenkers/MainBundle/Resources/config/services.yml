@@ -1,0 +1,4 @@
+services:
+#    challenkers_main.example:
+#        class: Challenkers\MainBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
