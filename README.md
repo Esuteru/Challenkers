@@ -40,5 +40,5 @@ Mises à part les instructions données, j'ai ajouté un champs idMaitreGuilde d
 malheureusement pas réussi à l'afficher
 
 III) REMARQUES
-Pour une raison que j'ignore, parfois les liens ne fonctionennt pas mais se remmettent à fonctionner
+Pour une raison que j'ignore, parfois les liens ne fonctionennt pas mais se remettent à fonctionner
 si on corrige l'URL une fois.
